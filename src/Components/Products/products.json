@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "_id": "pin",
+      "title": "Cosplay Cleric Pin",
+      "description": "They're finally here! #72 in the Persona Pins Lineup is the Cosplay Cleric, rendered beautifully in miniature. Size: 1\" tall Looks great on a lapel! Comes with standard pin backs. Rubber pin backs available!",
+      "image_url": "pin.jpg"
+    },
+    {
+      "_id": "candles",
+      "title": "Hand Poured Soy Candles",
+      "description": "Hand poured in Chico, CA, these candles are made from 100% soy wax and everything, from the jar to the wick, was made in the US! They're packed with fragrance oil for a strong punch. Each candle is 8.5 oz, and are pthalate, paraben, mica, and coloring free.",
+      "image_url": "candles.jpg"
+    },
+    {
+      "_id": "teatowel-castfireball",
+      "title": "\"I Don’t Care, I Cast Fireball\" Embroidered Tea Towel",
+      "description": "Made with 100% cotton, these tea towels can stand up to abuse! Super absorbent and super cute, the embroidered design is durable enough to stand up to the harshest messes. Embroidered Design by Urban Threads LLC Embroidery done by me Stitching is 100% polyester",
+      "image_url": "teatowel-castfireball.jpg"
+    },
+    {
+      "_id": "teatowel-homewifi",
+      "title": "\"Home is Where The Wifi Connects Automatically\" Embroidered Tea Towel",
+      "description": "Made with 100% cotton, these tea towels can stand up to abuse! Super absorbent and super cute, the embroidered design is durable enough to stand up to the harshest messes. Embroidered Design by Urban Threads LLC Embroidery done by me Stitching is 100% polyester",
+      "image_url": "teatowel-homewifi.jpg"
+    },
+    {
+      "_id": "teatowel-shipwreck",
+      "title": "\"I Run A Tight Shipwreck\" Embroidered Tea Towel",
+      "description": "Made with 100% cotton, these tea towels can stand up to abuse! Super absorbent and super cute, the embroidered design is durable enough to stand up to the harshest messes. Embroidered Design by Urban Threads LLC Embroidery done by me Stitching is 100% polyester",
+      "image_url": "teatowel-shipwreck.jpg"
+    },
+    {
+      "_id": "teatowel-thinkyoureinakitchen",
+      "title": "\"You Think You're In A Kitchen, But You've Been Wrong Before\" Embroidered Tea Towel",
+      "description": "Made with 100% cotton, these tea towels can stand up to abuse! Super absorbent and super cute, the embroidered design is durable enough to stand up to the harshest messes. Embroidered Design by Urban Threads LLC Embroidery done by me Stitching is 100% polyester",
+      "image_url": "teatowel-thinkyoureinakitchen.jpg"
+    },
+    {
+      "_id": "dicebag-potionbottles",
+      "title": "Handmade Dice Bag, Bitty Potion Bottles",
+      "description": "Do you need a dice bag? Well, here’s one!\nThe regular size dice bag measures 7 inches wide by 7 inches tall, with a sturdy pleather bottom and soft lining and can hold up to 1 lb of dice.\nLarge size dice bag measures 10 inches wide by 10 inches tall, also with a sturdy pleather bottom and soft lining- but this one holds up to SEVEN. POUNDS. Of dice, and is as large as my head! Big enough for most dice goblins.",
+      "image_url": "dicebag-potionbottles.jpg"
+    },
+    {
+      "_id": "dicebag-spaceunicorns",
+      "title": "Handmade Dice Bag, Space Unicorns",
+      "description": "Do you need a dice bag? Well, here’s one!\nThe regular size dice bag measures 7 inches wide by 7 inches tall, with a sturdy pleather bottom and soft lining and can hold up to 1 lb of dice.\nLarge size dice bag measures 10 inches wide by 10 inches tall, also with a sturdy pleather bottom and soft lining- but this one holds up to SEVEN. POUNDS. Of dice, and is as large as my head! Big enough for most dice goblins.",
+      "image_url": "dicebag-spaceunicorns.jpg"
+    },
+    {
+      "_id": "dicebag-teenykitty",
+      "title": "Handmade Dice Bag, Teney Kitty",
+      "description": "Do you need a dice bag? Well, here’s one!\nThe regular size dice bag measures 7 inches wide by 7 inches tall, with a sturdy pleather bottom and soft lining and can hold up to 1 lb of dice.\nLarge size dice bag measures 10 inches wide by 10 inches tall, also with a sturdy pleather bottom and soft lining- but this one holds up to SEVEN. POUNDS. Of dice, and is as large as my head! Big enough for most dice goblins.",
+      "image_url": "dicebag-teenykitty.jpg"
+    },
+    {
+      "_id": "dicebag-treasuretrinkets",
+      "title": "Handmade Dice Bag, Treasures & Trinkets",
+      "description": "Do you need a dice bag? Well, here’s one!\nThe regular size dice bag measures 7 inches wide by 7 inches tall, with a sturdy pleather bottom and soft lining and can hold up to 1 lb of dice.\nLarge size dice bag measures 10 inches wide by 10 inches tall, also with a sturdy pleather bottom and soft lining- but this one holds up to SEVEN. POUNDS. Of dice, and is as large as my head! Big enough for most dice goblins.",
+      "image_url": "dicebag-treasuretrinkets.jpg"
+    }
+  ]
+}
+
+
