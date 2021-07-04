@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import SvgIcons from './Components/SvgIcons/SvgIcons';
+
+import logo from './assets/chibi.png';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App grid-container">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <main className="App-main">
+        <p>Main</p>
+      </main>
+      <footer className="App-footer">
+        <SvgIcons/>
+        All rights reserved
+      </footer>
+
     </div>
   );
 }
