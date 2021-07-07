@@ -1,7 +1,7 @@
 import SvgIcons from './Components/SvgIcons/SvgIcons';
 
 import logo from './assets/chibi.png';
-import Layout from './Components/Products/Layout';
+import Layout from './Containers/Layout/Layout';
 import './App.css';
 
 function App() {
