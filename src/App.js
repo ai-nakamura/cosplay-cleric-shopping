@@ -1,6 +1,7 @@
 import SvgIcons from './Components/SvgIcons/SvgIcons';
 
 import logo from './assets/chibi.png';
+import Layout from './Components/Products/Layout';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         </p>
       </header>
       <main className="App-main">
+        <Layout/>
       </main>
       <footer className="App-footer">
         <SvgIcons/>

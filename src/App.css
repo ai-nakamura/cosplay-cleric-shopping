@@ -1,23 +1,73 @@
 .App {
   text-align: center;
+  font-size: calc(8px + 1vmin);
+  color: white;
+  padding: 0.5em;
 }
 
 .App-logo {
-  height: 200px;
+  height: 180px;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: 1fr 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+a {
+  color: #ff8000;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffcc88;
+}
+header {
+  grid-area: header;
+  background-color: #203040;
+  height: 200px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+main {
+  grid-area: main;
+  padding: 10px;
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
 .App-header {
   display: grid;
   grid-area: header;
+  height: 200px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 1vmin);
   color: white;
   padding: 0.5em;
 }
 
 .App-main {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-area: main;
   align-items: center;
   justify-content: center;
@@ -46,3 +96,4 @@
   grid-template-columns: 1fr;
   height: 100%;
 }
+*/
