@@ -1,7 +1,8 @@
 .cart {
     padding: 1rem;
     margin: 1rem;
-    display: flex;
+    background-color: #203040;
+    border-radius: 5%;
 }
 .cart-header {
     border-bottom: 0.1rem #c0c0c0 solid;
@@ -21,7 +22,7 @@
     padding: 0.5rem;
 }
 .cart-items li div:last-child {
-    flex: 1;
+    flex: 0;
 }
 .right {
     text-align: right;

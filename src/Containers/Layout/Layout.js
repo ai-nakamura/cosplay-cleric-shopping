@@ -100,7 +100,7 @@ export default class Layout extends Component {
     this.setState({
       cartItems: cartItems
     });
-    localStorage.setItem("cartItems", JSON.stringify(this.state.cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
   /* removeFromCart

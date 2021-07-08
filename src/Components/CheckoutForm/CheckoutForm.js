@@ -8,7 +8,7 @@ const CheckoutForm = props => {
   let [ address, setAddress ] = useState('');
 
   return(
-    <form onSubmit={ e => props.createOrder(e, email, name, address)}>
+    <form onSubmit={e => props.createOrder(e, email, name, address)}>
       <ul className="form-container">
 
         <li>

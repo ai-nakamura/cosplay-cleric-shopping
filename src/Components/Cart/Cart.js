@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Fade from 'react-reveal/Fade';
 
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import { formatCurrency } from '../../util';
@@ -10,14 +11,12 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartItems: [],
       showCheckout: false
     }
   }
 
   createOrder = (e, email, name, address) => {
     e.preventDefault();
-    console.log(email, name, address);
     this.props.createOrder({email, name, address});
   }
 
@@ -25,6 +24,8 @@ class Cart extends Component {
   render() {
     const cartItems = this.props.cartItems;
 
+
+    // cart header
     let cart_header =
       <div className="cart cart-header">
         Cart is empty
@@ -35,11 +36,12 @@ class Cart extends Component {
         <div className="cart cart-header">
           You have {cartItems.length}
           {cartItems.length === 1 ? " item " : " items "}
-          in the cart{" "}
+          in your cart{" "}
         </div>
     }
 
 
+    // cart items
     let cart_items =
       <ul className="cart-items">
         {cartItems.map(item => (
@@ -55,7 +57,6 @@ class Cart extends Component {
 
             <div className="right">
               {formatCurrency(item.price)} x {item.count}{" "}
-
               <button  className="button"
                 onClick={() => this.props.removeFromCart(item)}>
                 Remove
@@ -66,6 +67,7 @@ class Cart extends Component {
       </ul>
 
 
+    // cart total
     let cart_total = cartItems.length !== 0 &&
       <div className="total">
         <div>
@@ -77,17 +79,13 @@ class Cart extends Component {
         <button className="button primary"
           onClick={() => {
             this.setState({ showCheckout: true });
-            console.log("Buy");
           }}>
           Buy
         </button>
       </div>
 
 
-
-
     return (
-      <>
       <div className="cart">
         <div>
           {cart_header}
@@ -98,15 +96,17 @@ class Cart extends Component {
         <div>
           {cart_total}
         </div>
-      </div>
-      <div>
-        {this.state.showCheckout &&
-          <CheckoutForm
-            createOrder={this.createOrder}
+        <div>
+          {this.state.showCheckout &&
+            <Fade right cascade>
+              <CheckoutForm className="close-modal"
+                createOrder={this.createOrder}
+              />
 
-          />}
+            </Fade>
+          }
+        </div>
       </div>
-      </>
     );
   }
 }
