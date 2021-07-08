@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+
+import Cart from '../../Components/Cart/Cart';
+import Filter from '../../Components/Filter/Filter';
 import productsList from "../../Components/Products/products.json";
 import Products from '../../Components/Products/Products';
 
 import './Layout.css';
-import Filter from '../../Components/Filter/Filter';
 
 export default class Layout extends Component {
   constructor(props) {
@@ -11,11 +13,15 @@ export default class Layout extends Component {
     this.state = {
       products: productsList.productsList,
       type: '',
-      sort: ''
+      sort: '',
+      cartItems: []
     }
   }
 
-  filterProducts = (event) => {
+  /* filterProducts
+   * Filter products by the item types
+   */
+  filterProducts = event => {
     if (event.target.value === "") {
       this.setState({
         type: event.target.value,
@@ -32,6 +38,11 @@ export default class Layout extends Component {
     }
   }
 
+  /* sortProducts
+   *
+   * Sort products according to lowest or highest prices,
+   * or by latest addition to products
+   */
   sortProducts = (event) => {
     const sort = event.target.value;
     console.log(event.target.value);
@@ -48,18 +59,58 @@ export default class Layout extends Component {
           .slice()
           .sort((a, b) => {
             let sortBy = 0
-            if (sort === 'lowest') {
-              sortBy = a.price > b.price ? 1 : -1
-            }
-            else if (sort === 'highest') {
-              sortBy = a.price < b.price ? 1 : -1
-            }
+            if      (sort === 'lowest')  {sortBy = a.price > b.price ? 1 : -1}
+            else if (sort === 'highest') {sortBy = a.price < b.price ? 1 : -1}
             return sortBy
           })
       }));
     }
   }
 
+  /* addToCart
+   *
+   * Add an item to the cart
+   * If an item is already in the cart, increase the count
+   * rather than add the item a second time
+   */
+  addToCart = product => {
+    const cartItems = this.state.cartItems.slice();
+    let alreadyInCart = false;
+
+    // check if we already have the item in the cart. If yes increase count
+    cartItems.forEach( item => {
+      if (item.id === product.id) {
+        item.count++;
+        alreadyInCart = true;
+      }
+    });
+
+    // If we don't have it in the cart, add it to cartItems with count 1
+    if (!alreadyInCart) {
+      cartItems.push({
+        ...product,
+        count: 1
+      });
+    }
+
+    // setState
+    this.setState({
+      cartItems: cartItems
+    })
+  }
+
+  /* removeFromCart
+   *
+   * Remove an item from the cart by filtering out by product id
+   * TODO: Make it so if there's more than one item of the type
+   *  to be removed, do count--
+   */
+  removeFromCart = product => {
+    const cartItems = this.state.cartItems.slice();
+    this.setState({
+      cartItems: cartItems.filter( x => x.id !== product.id )
+    })
+  }
 
 
   render() {
@@ -73,10 +124,16 @@ export default class Layout extends Component {
             filterProducts={this.filterProducts}
             sortProducts={this.sortProducts}
           />
-          <Products products={this.state.products}/>
+          <Products
+            products={this.state.products}
+            addToCart={this.addToCart}
+          />
         </div>
         <div className="sidebar">
-          Cart Items
+          <Cart
+            cartItems={this.state.cartItems}
+            removeFromCart={this.removeFromCart}
+          />
         </div>
       </div>
     )
