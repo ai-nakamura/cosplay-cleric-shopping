@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import { formatCurrency } from '../../util';
 
 import './Cart.css';
@@ -9,10 +10,16 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartItems: []
+      cartItems: [],
+      showCheckout: false
     }
   }
 
+  createOrder = (e, email, name, address) => {
+    e.preventDefault();
+    console.log(email, name, address);
+    this.props.createOrder({email, name, address});
+  }
 
 
   render() {
@@ -34,49 +41,54 @@ class Cart extends Component {
 
 
     let cart_items =
-      <div className="cart">
-        <ul className="cart-items">
-          {cartItems.map(item => (
-            <li key={item.id}>
+      <ul className="cart-items">
+        {cartItems.map(item => (
+          <li key={item.id}>
 
-              <div>
-                <img src={item.image_url} alt={item.title}/>
-              </div>
+            <div>
+              <img src={item.image_url} alt={item.title}/>
+            </div>
 
-              <div>
-                {item.title}
-              </div>
+            <div>
+              {item.title}
+            </div>
 
-              <div className="right">
-                {formatCurrency(item.price)} x {item.count}{" "}
+            <div className="right">
+              {formatCurrency(item.price)} x {item.count}{" "}
 
-                <button  className="button"
-                  onClick={() => this.props.removeFromCart(item)}>
-                  Remove
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+              <button  className="button"
+                onClick={() => this.props.removeFromCart(item)}>
+                Remove
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
 
-    {console.log(cartItems)}
+
     let cart_total = cartItems.length !== 0 &&
-      <div className="cart">
-        <div className="total">
-          <div>
-            Total:{" "}
-            {formatCurrency(
-              cartItems.reduce( (a, c) => a + (c.price * c.count), 0 )
-            )}
-          </div>
-          <button className="button primary">Buy</button>
+      <div className="total">
+        <div>
+          Total:{" "}
+          {formatCurrency(
+            cartItems.reduce( (a, c) => a + (c.price * c.count), 0 )
+          )}
         </div>
+        <button className="button primary"
+          onClick={() => {
+            this.setState({ showCheckout: true });
+            console.log("Buy");
+          }}>
+          Buy
+        </button>
       </div>
+
+
 
 
     return (
       <>
+      <div className="cart">
         <div>
           {cart_header}
         </div>
@@ -86,6 +98,14 @@ class Cart extends Component {
         <div>
           {cart_total}
         </div>
+      </div>
+      <div>
+        {this.state.showCheckout &&
+          <CheckoutForm
+            createOrder={this.createOrder}
+
+          />}
+      </div>
       </>
     );
   }

@@ -14,7 +14,9 @@ export default class Layout extends Component {
       products: productsList.productsList,
       type: '',
       sort: '',
-      cartItems: []
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : []
     }
   }
 
@@ -72,6 +74,7 @@ export default class Layout extends Component {
    * Add an item to the cart
    * If an item is already in the cart, increase the count
    * rather than add the item a second time
+   * Also saves items to locaalstorage to persist across page refresh
    */
   addToCart = product => {
     const cartItems = this.state.cartItems.slice();
@@ -93,23 +96,35 @@ export default class Layout extends Component {
       });
     }
 
-    // setState
+    // Save to setState and localstorage
     this.setState({
       cartItems: cartItems
-    })
+    });
+    localStorage.setItem("cartItems", JSON.stringify(this.state.cartItems));
   }
 
   /* removeFromCart
    *
    * Remove an item from the cart by filtering out by product id
    * TODO: Make it so if there's more than one item of the type
-   *  to be removed, do count--
+   *  to be removed, decrease count instead of removing whole item
    */
   removeFromCart = product => {
     const cartItems = this.state.cartItems.slice();
+    const cartItems_filtered = cartItems.filter( x => x.id !== product.id );
     this.setState({
-      cartItems: cartItems.filter( x => x.id !== product.id )
-    })
+      cartItems: cartItems_filtered
+    });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems_filtered));
+  }
+
+
+  /* createOrder
+   *
+   * Put together the final order
+   */
+  createOrder = order => {
+    alert("Place order for " + order.name);
   }
 
 
@@ -133,6 +148,7 @@ export default class Layout extends Component {
           <Cart
             cartItems={this.state.cartItems}
             removeFromCart={this.removeFromCart}
+            createOrder={this.createOrder}
           />
         </div>
       </div>
