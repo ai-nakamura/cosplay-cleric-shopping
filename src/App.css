@@ -1,6 +1,5 @@
 .App {
-  text-align: center;
-  font-size: calc(8px + 1vmin);
+
   color: white;
   padding: 0.5em;
 }
@@ -19,13 +18,21 @@
   grid-template-columns: 1fr;
   height: 100%;
 }
+
 a {
   color: #ff8000;
   text-decoration: none;
 }
+
 a:hover {
   color: #ffcc88;
 }
+
+.p-header {
+  width: 80%;
+  padding-right: 7rem;
+}
+
 header {
   grid-area: header;
   background-color: #203040;
@@ -35,15 +42,19 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  border: 1px #ffcc88 solid;
 }
+
 header a {
   color: #ffffff;
   text-decoration: none;
 }
+
 main {
   grid-area: main;
   padding: 10px;
 }
+
 footer {
   grid-area: footer;
   background-color: #203040;
@@ -52,48 +63,3 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
-/*
-.App-header {
-  display: grid;
-  grid-area: header;
-  height: 200px;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(8px + 1vmin);
-  color: white;
-  padding: 0.5em;
-}
-
-.App-main {
-  display: flex;
-  flex-wrap: wrap;
-  grid-area: main;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-footer {
-  display: grid;
-  grid-area: footer;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 0.5em;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-areas: "header" "main" "footer";
-  grid-template-rows: 250px 1fr 5em;
-  grid-template-columns: 1fr;
-  height: 100%;
-}
-*/

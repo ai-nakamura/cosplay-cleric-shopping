@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import Cart from '../../Components/Cart/Cart';
 import Filter from '../../Components/Filter/Filter';
-import productsList from "../../Components/Products/products.json";
 import Products from '../../Components/Products/Products';
+import productsList from "../../Components/Products/products.json";
 
 import './Layout.css';
 

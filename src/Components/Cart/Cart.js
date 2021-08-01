@@ -43,28 +43,30 @@ class Cart extends Component {
 
     // cart items
     let cart_items =
-      <ul className="cart-items">
-        {cartItems.map(item => (
-          <li key={item.id}>
+      <Fade left cascade>
+        <ul className="cart-items">
+          {cartItems.map(item => (
+            <li key={item.id}>
 
-            <div>
-              <img src={item.image_url} alt={item.title}/>
-            </div>
+              <div>
+                <img src={item.image_url} alt={item.title}/>
+              </div>
 
-            <div>
-              {item.title}
-            </div>
+              <div>
+                {item.title}
+              </div>
 
-            <div className="right">
-              {formatCurrency(item.price)} x {item.count}{" "}
-              <button  className="button"
-                onClick={() => this.props.removeFromCart(item)}>
-                Remove
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+              <div className="right">
+                {formatCurrency(item.price)} x {item.count}{" "}
+                <button  className="button"
+                  onClick={() => this.props.removeFromCart(item)}>
+                  Remove
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Fade>
 
 
     // cart total
@@ -98,12 +100,9 @@ class Cart extends Component {
         </div>
         <div>
           {this.state.showCheckout &&
-            <Fade right cascade>
-              <CheckoutForm className="close-modal"
-                createOrder={this.createOrder}
-              />
-
-            </Fade>
+            <CheckoutForm className="close-modal"
+              createOrder={this.createOrder}
+            />
           }
         </div>
       </div>

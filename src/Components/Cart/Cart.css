@@ -17,15 +17,20 @@
 }
 .cart-items li {
     display: flex;
+    padding: 7px;
+
 }
 .cart-items li div {
     padding: 0.5rem;
+    width: 100%;
 }
 .cart-items li div:last-child {
     flex: 0;
 }
 .right {
     text-align: right;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 .total {
     display: flex;

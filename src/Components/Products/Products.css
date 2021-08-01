@@ -10,10 +10,10 @@
 
 .products li{
     flex: 1 1 29rem;
-    /*height: 47rem;*/
+    /*height: 25rem;*/
     padding: 3rem;
     margin: 1rem;
-    max-width: 20em;
+    max-width: 23em;
 }
 
 .product {
@@ -21,14 +21,15 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    width: border-box;
     background-color: #203040;
     border-radius: 5%;
 }
 
 .product img {
-    margin-top: 15px;
-    max-width: 27rem;
-    /* max-height: 35rem; */
+    margin-top: 20px;
+    max-width: 300px;
+    max-height: 35rem;
     border: 1px #ffcc88 solid;
     border-radius: 5%;
 }
@@ -39,7 +40,6 @@
     flex: 5;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .product-price div,
@@ -48,19 +48,54 @@
     font-size: 2rem;
 }
 
-.button {
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-height: 96vh;
+}
+.product-details img {
+    max-height: 100vh;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+.product-details-description {
+    flex: 1 1;
+    margin: 1rem;
+}
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+    z-index: 1000;
+}
+
+button {
     padding: 1rem;
     border: 0.1rem #c0c0c0 solid;
     background-color: #f0f0f0;
     cursor: pointer;
 }
 
-.button hover {
+button:hover {
     border: 0.1rem #808080 solid;
     color: #082923;
     background-color: #ffcc88;
 }
 
-.button primary {
-    background-color: #ffc000;
+button.primary {
+    background-color: #3faaed;
 }
+
+button.primary:hover {
+    background-color: #3585be;
+}
+
+.testing .ReactModal__Overlay {
+    background-color: rgba(14, 87, 44, 0.75) !important;
+}
+
+.testing .ReactModal__Content {
+    background-color: #edd790 !important;
+}
+
