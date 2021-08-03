@@ -10,13 +10,13 @@ const shortid = require("shortid");
 
 // create a web server using express
 const app = express();
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // so we can use 'x-www-form-urlencoded', but it shouldn't be necessary?
-/*
-  why do we need line 14?
-  clarifications between x-www-form-urlencoded and json (I think I get it)
-
- */
+// app.use(bodyParser.urlencoded({ extended: true }));
+// so we can use 'x-www-form-urlencoded', but it shouldn't be necessary?
 
 // initialize mongoose database
 mongoose.connect("mongodb://localhost/cosplay-cleric-db", {

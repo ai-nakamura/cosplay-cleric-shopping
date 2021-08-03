@@ -1,34 +1,37 @@
-import SvgIcons from './Components/SvgIcons/SvgIcons';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
 
-import logo from './assets/chibi.png';
+import Intro from "./Containers/Intro/Intro";
 import Layout from './Containers/Layout/Layout';
+import store from "./store";
+import SvgIcons from './Containers/SvgIcons/SvgIcons';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App grid-container">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="p-header">
-          Welcome to Cleric's Cantrips! Since 2014,
-          the Cosplay Cleric has been offering free
-          cosplay repair at conventions across California
-          and Nevada, and has helped over 4,000 cosplayers
-          repair their cosplays in an emergency. Sales from
-          this shop directly help the cleric get to more
-          conventions and help more cosplayers and costumes.
-        </p>
-      </header>
-      <main className="App-main">
-        <Layout/>
-      </main>
-      <footer className="App-footer">
-        <SvgIcons/>
-        All rights reserved
-      </footer>
 
-    </div>
-  );
+class App extends Component{
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App grid-container">
+
+          <header className="App-header">
+            <Intro/>
+          </header>
+
+          <main className="App-main">
+            <Layout/>
+          </main>
+
+          <footer className="App-footer">
+            <SvgIcons/>
+            All rights reserved
+          </footer>
+
+        </div>
+      </Provider>
+    )
+  }
 }
 
 export default App;
