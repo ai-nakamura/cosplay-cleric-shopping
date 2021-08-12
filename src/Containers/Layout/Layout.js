@@ -20,55 +20,6 @@ export default class Layout extends Component {
     }
   }
 
-  /* filterProducts
-   * Filter products by the item types
-   */
-  filterProducts = event => {
-    if (event.target.value === "") {
-      this.setState({
-        type: event.target.value,
-        products: productsList.productsList
-      })
-    }
-    else {
-      this.setState({
-        type: event.target.value,
-        products:productsList.productsList.filter( products =>
-          products.type.indexOf(event.target.value) >= 0
-        )
-      });
-    }
-  }
-
-  /* sortProducts
-   *
-   * Sort products according to lowest or highest prices,
-   * or by latest addition to products
-   */
-  sortProducts = (event) => {
-    const sort = event.target.value;
-    console.log(event.target.value);
-
-    if (event.target.value === "latest") {
-      this.setState({
-        products: productsList.productsList
-      });
-    }
-    else {
-      this.setState( state => ({
-        sort,
-        products: this.state.products
-          .slice()
-          .sort((a, b) => {
-            let sortBy = 0
-            if      (sort === 'lowest')  {sortBy = a.price > b.price ? 1 : -1}
-            else if (sort === 'highest') {sortBy = a.price < b.price ? 1 : -1}
-            return sortBy
-          })
-      }));
-    }
-  }
-
   /* addToCart
    *
    * Add an item to the cart
@@ -106,8 +57,6 @@ export default class Layout extends Component {
   /* removeFromCart
    *
    * Remove an item from the cart by filtering out by product id
-   * TODO: Make it so if there's more than one item of the type
-   *  to be removed, decrease count instead of removing whole item
    */
   removeFromCart = product => {
     const cartItems = this.state.cartItems.slice();
@@ -132,13 +81,7 @@ export default class Layout extends Component {
     return (
       <div className="content">
         <div className="main">
-          <Filter
-            count={this.state.products.length}
-            type={this.state.type}
-            sort={this.state.sort}
-            filterProducts={this.filterProducts}
-            sortProducts={this.sortProducts}
-          />
+          <Filter/>
           <Products
             products={this.state.products}
             addToCart={this.addToCart}

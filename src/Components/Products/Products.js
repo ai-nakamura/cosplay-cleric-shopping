@@ -3,7 +3,7 @@ import Fade from 'react-reveal/Fade';
 import Modal from 'react-modal';
 import React, { Component } from 'react';
 import Zoom from 'react-reveal/Zoom';
-// TODO: Make my own Zoom HOC
+// TODO: Make my own Zoom
 
 import { fetchProducts } from "../../actions/productActions";
 import { formatCurrency } from '../../util';
@@ -20,13 +20,7 @@ class Products extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    // shows that this.props has fetchProducts(), but it doesn't call it in the next line
-    // I have a console.log in the function itself that's never triggered
-    // works when I take out the 'connect' bit
-    // checked: spelling, servers are running, code is identical to teacher's
     this.props.fetchProducts();
-    console.log(this.props);
   }
 
   openModal = product => {
@@ -38,13 +32,12 @@ class Products extends Component {
 
   render() {
     const { product } = this.state;
-    console.log(this.state);
 
     const listOfProducts =
       !this.props.products
         ? <div>loading...</div>
         : this.props.products.map(product => (
-          <li key={product.id}>
+          <li key={product._id}>
             <div className="product">
 
               <a
@@ -115,9 +108,10 @@ class Products extends Component {
   }
 }
 
-// export default Products;
 export default connect(
-  (state) => ({ products: state.products.items }),
+  state => ({
+    products: state.products.filteredItems
+  }),
   {
     fetchProducts,
   }
